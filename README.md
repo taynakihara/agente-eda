@@ -35,12 +35,7 @@ Esta aplicação Streamlit é um **agente inteligente** que permite análise exp
 - **Estatísticas detalhadas** de anomalias por variável
 - **Percentuais e limites** claramente definidos
 
-### 🤖 Consulta Inteligente com IA Groq
-- **Múltiplos modelos disponíveis**:
-  - 🦙 **Llama 3.3 70B** (Recomendado) - Mais inteligente
-  - 🦙 **Llama 3.1 8B** - Mais rápido
-  - 🧠 **GPT OSS 120B** - Mais poderoso
-  - 🧠 **GPT OSS 20B** - Eficiente
+### 🤖 Consulta Inteligente com IA
 - **Configurações avançadas** personalizáveis
 - **Contexto automático** com estatísticas do dataset
 - **Eficiência de custos** - API chamada apenas quando solicitado
@@ -79,7 +74,7 @@ Esta aplicação Streamlit é um **agente inteligente** que permite análise exp
 
 ### URL de Acesso
 Após o deploy, sua aplicação estará disponível em:
-`https://[nome-do-app]-[seu-usuario].streamlit.app`
+`https://agente-eda-taynakihara.streamlit.app/`
 
 ## 🔑 Uso da API Groq
 
@@ -108,101 +103,3 @@ streamlit_app/
 └── README.md                # README original
 ```
 
-## 🎯 Casos de Uso
-
-### Para Cientistas de Dados
-- **Análise exploratória ultra-rápida** de novos datasets
-- **Identificação automática** de padrões e anomalias
-- **Geração de insights** com IA de última geração
-
-### Para Analistas de Negócios
-- **Compreensão intuitiva** de dados complexos
-- **Visualizações profissionais** prontas para apresentação
-- **Perguntas em linguagem natural** com respostas instantâneas
-
-### Para Estudantes
-- **Aprendizado prático** de análise de dados
-- **Exemplos visuais** de conceitos estatísticos
-- **Ferramenta educacional** com IA avançada
-
-## 🔧 Tecnologias Utilizadas
-
-- **Streamlit** - Framework web para Python
-- **Pandas** - Manipulação e análise de dados
-- **Matplotlib** - Visualizações estáticas
-- **Seaborn** - Visualizações estatísticas avançadas
-- **NumPy** - Computação numérica
-- **Groq** - API de IA ultra-rápida
-
-## 📊 Modelos Disponíveis
-
-### 🦙 Llama 3.3 70B (Recomendado)
-- **Melhor qualidade** de resposta
-- **Raciocínio avançado** para análises complexas
-- **Ideal para** insights profundos
-- **Contexto**: 131K tokens
-
-### 🦙 Llama 3.1 8B (Rápido)
-- **Velocidade máxima** de resposta
-- **Boa qualidade** para perguntas simples
-- **Ideal para** consultas rápidas
-- **Contexto**: 131K tokens
-
-### 🧠 GPT OSS 120B (Poderoso)
-- **Modelo mais poderoso** disponível
-- **Excelente para** análises complexas
-- **Ideal para** tarefas avançadas
-- **Contexto**: 131K tokens
-
-### 🧠 GPT OSS 20B (Eficiente)
-- **Equilibrio** entre potência e eficiência
-- **Boa para** diversos tipos de análise
-- **Ideal para** uso geral
-- **Contexto**: 131K tokens
-
-## 🎨 Design e Usabilidade
-
-### Alto Contraste
-- **Fundo escuro** (#0E1117) para reduzir fadiga visual
-- **Texto branco** para máxima legibilidade
-- **Cores vibrantes** (cyan, coral) para destacar dados
-- **Grid sutil** para orientação visual
-
-### Interface Intuitiva
-- **Abas organizadas** por tipo de análise
-- **Upload simples** de arquivos CSV
-- **Seleção de modelos** IA
-- **Configurações avançadas** opcionais
-- **Feedback visual** em tempo real
-- **Responsivo** para diferentes dispositivos
-
-## 🏆 Diferenciais da Versão Groq
-
-1. **Ultra-Rápida** - Respostas em segundos
-2. **Econômica** - Tier gratuito muito generoso
-3. **Múltiplos Modelos** - Escolha o melhor para sua necessidade
-4. **Configurável** - Ajuste temperatura, tokens, prompts
-5. **Confiável** - Infraestrutura robusta
-6. **Moderna** - Modelos de última geração
-
-## 🆚 Comparação: Groq vs OpenAI
-
-| Característica | Groq | OpenAI |
-|---|---|---|
-| **Velocidade** | ⚡ Até 10x mais rápida | 🐌 Padrão |
-| **Custo** | 💰 Muito econômica | 💸 Mais cara |
-| **Tier Gratuito** | 🎁 Muito generoso | 🎁 Limitado |
-| **Modelos** | 🧠 Llama 3.3, GPT OSS | 🧠 GPT-3.5, GPT-4 |
-| **Qualidade** | ⭐ Excelente | ⭐ Excelente |
-| **Facilidade** | ✅ Muito fácil | ✅ Fácil |
-
-## 📈 Performance
-
-- **Tempo de resposta**: < 2 segundos (típico)
-- **Throughput**: Milhares de tokens por segundo
-- **Disponibilidade**: 99.9% uptime
-- **Latência**: Ultra-baixa
-
----
-
-**Desenvolvido com ❤️ e powered by ⚡ Groq AI para análise inteligente de dados**
