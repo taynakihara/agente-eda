@@ -3,16 +3,6 @@
 ## 📋 Descrição
 Esta aplicação Streamlit é um **agente inteligente** que permite análise exploratória completa de **qualquer arquivo CSV** de forma automática e interativa, powered by **Groq AI**. A ferramenta foi desenvolvida para atender aos requisitos da atividade obrigatória do Institut d'Intelligence Artificielle Appliquée.
 
-## ⚡ Por que Groq?
-
-**Groq** é uma plataforma de IA que oferece vantagens significativas sobre outras APIs:
-
-- **🚀 Velocidade Extrema**: Até 10x mais rápida que OpenAI
-- **💰 Muito Econômica**: Tier gratuito generoso com milhares de tokens
-- **🧠 Modelos Avançados**: Llama 3 70B, Mixtral 8x7B, Gemma 7B
-- **🔒 Confiável**: Infraestrutura robusta e estável
-- **🌟 Fácil de Usar**: API simples e bem documentada
-
 ## 🚀 Funcionalidades Principais
 
 ### 📋 Visão Geral
