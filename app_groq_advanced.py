@@ -7,23 +7,9 @@ from groq import Groq
 
 st.set_page_config(page_title="Agente de Análise de Dados CSV", page_icon="📊", layout="wide")
 
-st.markdown(
-    """
-    <style>
-    .block-container {
-        text-align: center;
-    }
-    table {
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 st.markdown("<h1 style='text-align: center;'>🤖 Agente de Análise de Dados</h1>", unsafe_allow_html=True)
-st.markdown("**Ferramenta inteligente para análise de qualquer arquivo CSV com IA**")
+st.markdown("<h3 style='text-align: center;'>Ferramenta inteligente para análise de qualquer arquivo CSV com IA</h3>", unsafe_allow_html=True)
+
 
 uploaded_file = st.file_uploader("Carregue seu arquivo CSV para análise", type=['csv'])
 
