@@ -317,56 +317,62 @@ if uploaded_file is not None:
         with tab6:
             st.header("🤖 Consulta Inteligente com IA")
             st.markdown("Faça perguntas sobre seus dados e obtenha insights inteligentes com modelos avançados!")
-            
-            # Configuração da API
+
+        # Configuração da API
             col1, col2 = st.columns([2, 1])
-            
-            with col1:
-                api_key = st.text_input(
-                    "🔑 Insira sua chave da API:", 
-                    type="password",
-                    help="Sua chave será usada apenas para esta sessão e não será armazenada."
-                )
-            
-            with col2:
-                # Seleção do modelo
-                model_options = {
-                    "llama-3.3-70b-versatile": "🦙 Llama 3.3 70B (Recomendado)",
-                    "llama-3.1-8b-instant": "🦙 Llama 3.1 8B (Rápido)",
-                    "openai/gpt-oss-120b": "🧠 GPT OSS 120B (Poderoso)",
-                    "openai/gpt-oss-20b": "🧠 GPT OSS 20B (Eficiente)"
-                }
-                
-                selected_model = st.selectbox(
-                    "🧠 Escolha o modelo:",
-                    options=list(model_options.keys()),
-                    format_func=lambda x: model_options[x],
-                    index=0
-                )
-            
-            if api_key:
-                # Configurar cliente
-                client = Groq(api_key=api_key)
-                
-                # Preparar contexto dos dados
-                context = f"""
-                CONTEXTO DO DATASET:
-                - Número de linhas: {data.shape[0]:,}
-                - Número de colunas: {data.shape[1]:,}
-                - Colunas: {', '.join(data.columns.tolist())}
-                
-                TIPOS DE DADOS:
-                {data.dtypes.to_string()}
-                
-                ESTATÍSTICAS DESCRITIVAS (variáveis numéricas):
-                {data.describe().to_string() if len(numeric_cols) > 0 else 'Não há variáveis numéricas'}
-                
-                VALORES ÚNICOS POR COLUNA:
-                {pd.Series({col: data[col].nunique() for col in data.columns}).to_string()}
-                
-                VALORES NULOS:
-                {data.isnull().sum().to_string()}
+
+        with col1:
+            # Primeiro tenta pegar do st.secrets
+            api_key = st.secrets.get("GROQ_API_KEY", "")
+
+            # Se não existir no st.secrets, pede manualmente
+            if not api_key:
+             api_key = st.text_input(
+                "🔑 Insira sua chave da API:", 
+                type="password",
+                help="Sua chave será usada apenas para esta sessão e não será armazenada."
+            )
+
+        with col2:
+        # Seleção do modelo
+            model_options = {
+                "llama-3.3-70b-versatile": "🦙 Llama 3.3 70B (Recomendado)",
+                "llama-3.1-8b-instant": "🦙 Llama 3.1 8B (Rápido)",
+                "openai/gpt-oss-120b": "🧠 GPT OSS 120B (Poderoso)",
+                "openai/gpt-oss-20b": "🧠 GPT OSS 20B (Eficiente)"
+            }
+
+            selected_model = st.selectbox(
+                "🧠 Escolha o modelo:",
+                options=list(model_options.keys()),
+                format_func=lambda x: model_options[x],
+                index=0
+            )
+
+        if api_key:
+            # Configurar cliente
+            client = Groq(api_key=api_key)
+
+            # Preparar contexto dos dados
+            context = f"""
+            CONTEXTO DO DATASET:
+            - Número de linhas: {data.shape[0]:,}
+            - Número de colunas: {data.shape[1]:,}
+            - Colunas: {', '.join(data.columns.tolist())}
+        
+            TIPOS DE DADOS:
+            {data.dtypes.to_string()}
+        
+            ESTATÍSTICAS DESCRITIVAS (variáveis numéricas):
+            {data.describe().to_string() if len(numeric_cols) > 0 else 'Não há variáveis numéricas'}
+        
+            VALORES ÚNICOS POR COLUNA:
+            {pd.Series({col: data[col].nunique() for col in data.columns}).to_string()}
+        
+            VALORES NULOS:
+            {data.isnull().sum().to_string()}
                 """
+
                 
                 # Input para pergunta do usuário
                 user_question = st.text_area(
