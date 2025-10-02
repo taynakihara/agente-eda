@@ -4,26 +4,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from groq import Groq
-import os
-from io import StringIO
 
-# Configuração da página
-st.set_page_config(
-    page_title="Agente de Análise de Dados CSV - Groq",
-    page_icon="📊",
-    layout="wide"
-)
+st.set_page_config(page_title="Agente de Análise de Dados CSV - Groq", page_icon="📊", layout="wide")
 
-# Título principal
 st.title("🤖 Agente de Análise Exploratória de Dados (E.D.A.)")
 st.markdown("**Ferramenta inteligente para análise de qualquer arquivo CSV com IA Groq**")
 
-# Upload do arquivo
-uploaded_file = st.file_uploader(
-    "Carregue seu arquivo CSV para análise", 
-    type=['csv'],
-    help="Selecione um arquivo CSV para realizar a análise exploratória completa"
-)
+uploaded_file = st.file_uploader("Carregue seu arquivo CSV para análise", type=['csv'])
 
 if uploaded_file is not None:
     # Carregar os dados
