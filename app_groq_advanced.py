@@ -5,10 +5,25 @@ import seaborn as sns
 import numpy as np
 from groq import Groq
 
-st.set_page_config(page_title="Agente de Análise de Dados CSV - Groq", page_icon="📊", layout="wide")
+st.set_page_config(page_title="Agente de Análise de Dados CSV", page_icon="📊", layout="wide")
 
-st.title("🤖 Agente de Análise Exploratória de Dados (E.D.A.)")
-st.markdown("**Ferramenta inteligente para análise de qualquer arquivo CSV com IA Groq**")
+st.markdown(
+    """
+    <style>
+    .block-container {
+        text-align: center;
+    }
+    table {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown("<h1 style='text-align: center;'>🤖 Agente de Análise de Dados</h1>", unsafe_allow_html=True)
+st.markdown("**Ferramenta inteligente para análise de qualquer arquivo CSV com IA**")
 
 uploaded_file = st.file_uploader("Carregue seu arquivo CSV para análise", type=['csv'])
 
@@ -314,7 +329,7 @@ if uploaded_file is not None:
                 st.info("Não há variáveis numéricas para análise de outliers.")
         
         with tab6:
-            st.header("🤖 Consulta Inteligente com IA Groq")
+            st.header("🤖 Consulta Inteligente com IA")
             st.markdown("Faça perguntas sobre seus dados e obtenha insights inteligentes com modelos avançados!")
             
             # Configuração da API
@@ -322,7 +337,7 @@ if uploaded_file is not None:
             
             with col1:
                 api_key = st.text_input(
-                    "🔑 Insira sua chave da API da Groq:", 
+                    "🔑 Insira sua chave da API:", 
                     type="password",
                     help="Sua chave será usada apenas para esta sessão e não será armazenada."
                 )
@@ -344,7 +359,7 @@ if uploaded_file is not None:
                 )
             
             if api_key:
-                # Configurar cliente Groq
+                # Configurar cliente
                 client = Groq(api_key=api_key)
                 
                 # Preparar contexto dos dados
@@ -402,7 +417,7 @@ if uploaded_file is not None:
                                 Por favor, forneça uma resposta detalhada e insights úteis baseados nos dados apresentados. Se possível, sugira análises adicionais que poderiam ser interessantes.
                                 """
                                 
-                                # Chamar API Groq
+                                # Chamar API
                                 response = client.chat.completions.create(
                                     model=selected_model,
                                     messages=[
@@ -426,14 +441,14 @@ if uploaded_file is not None:
                                         st.write(f"**Tempo de resposta:** Muito rápido ⚡")
                                 
                             except Exception as e:
-                                st.error(f"❌ Erro ao consultar a API da Groq: {str(e)}")
+                                st.error(f"❌ Erro ao consultar a API: {str(e)}")
                                 st.info("Verifique se sua chave da API está correta e se você tem créditos disponíveis.")
                     else:
                         st.warning("⚠️ Por favor, digite uma pergunta antes de analisar.")
             else:
-                st.info("🔑 Insira sua chave da API da Groq para usar a funcionalidade de consulta inteligente.")
+                st.info("🔑 Insira sua chave da API para usar a funcionalidade de consulta inteligente.")
                 st.markdown("""
-                **Como obter sua chave da API:**
+                **Como obter sua chave da API (Groq):**
                 1. Acesse [console.groq.com](https://console.groq.com)
                 2. Faça login ou crie uma conta gratuita
                 3. Vá para API Keys
@@ -454,54 +469,29 @@ if uploaded_file is not None:
 else:
     # Página inicial quando nenhum arquivo foi carregado
     st.markdown("""
-    ## 🎯 Bem-vindo ao Agente de Análise de Dados com IA Groq!
+    ## 🎯 Bem-vindo ao Agente de Análise de Dados com IA!
     
-    Esta ferramenta permite realizar análise exploratória completa de qualquer arquivo CSV de forma automática e inteligente, powered by **Groq**.
+    Esta ferramenta permite realizar análise completa de qualquer arquivo CSV de forma automática e inteligente.
     
     ### 🚀 Funcionalidades:
     
     **📋 Visão Geral**
-    - Informações básicas do dataset
-    - Tipos de dados e estatísticas descritivas
-    - Identificação de valores nulos
     
     **📊 Distribuições**
-    - Histogramas para variáveis numéricas
-    - Gráficos de barras para variáveis categóricas
-    - Visualizações com alto contraste
     
     **🔍 Correlações**
-    - Matriz de correlação entre variáveis
-    - Identificação de relações significativas
-    - Análise de dependências
     
     **📈 Tendências**
-    - Análise temporal (quando aplicável)
-    - Padrões em variáveis categóricas
-    - Valores mais e menos frequentes
     
     **⚠️ Anomalias**
-    - Detecção automática de outliers
-    - Visualização com boxplots
-    - Estatísticas de anomalias
     
-    **🤖 Consulta IA com Groq**
-    - Múltiplos modelos: Llama 3.3 70B, Llama 3.1 8B, GPT OSS
-    - Perguntas personalizadas sobre os dados
-    - Insights inteligentes ultra-rápidos
-    - Configurações avançadas personalizáveis
-    
-    ### ⚡ Por que Groq?
-    
-    - **Velocidade incomparável**: Até 10x mais rápido que outras APIs
-    - **Economia**: Tier gratuito muito generoso
-    - **Qualidade**: Modelos de última geração
-    - **Confiabilidade**: Infraestrutura robusta e estável
+    **🤖 Consulta IA (Necessário inserir sua API KEY)**
+
     
     ### 📤 Como usar:
     1. Carregue seu arquivo CSV usando o botão acima
     2. Explore as diferentes abas de análise
-    3. Use a IA Groq para fazer perguntas específicas sobre seus dados
+    3. Use a IA para fazer perguntas específicas sobre seus dados
     
     **💡 Dica:** A ferramenta funciona com qualquer arquivo CSV e se adapta automaticamente às suas características!
     """)
