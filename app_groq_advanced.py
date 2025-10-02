@@ -375,14 +375,14 @@ if uploaded_file is not None:
 
                 
                 # Input para pergunta do usuário
-                user_question = st.text_area(
+            user_question = st.text_area(
                     "💭 Sua pergunta sobre os dados:",
                     placeholder="Exemplo: Quais são as principais características deste dataset? Existem padrões interessantes? Como estão distribuídas as variáveis?",
                     height=100
                 )
                 
                 # Configurações avançadas
-                with st.expander("⚙️ Configurações Avançadas"):
+            with st.expander("⚙️ Configurações Avançadas"):
                     col1, col2 = st.columns(2)
                     with col1:
                         max_tokens = st.slider("Máximo de tokens:", 100, 2000, 1000)
@@ -394,7 +394,7 @@ if uploaded_file is not None:
                             height=100
                         )
                 
-                if st.button("🚀 Analisar com IA", type="primary"):
+            if st.button("🚀 Analisar com IA", type="primary"):
                     if user_question.strip():
                         with st.spinner(f"🤖 Analisando com {model_options[selected_model]}..."):
                             try:
